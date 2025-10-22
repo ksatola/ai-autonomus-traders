@@ -1,0 +1,30 @@
+{
+    "name": "${localEnv:ENV_NAME}",
+    "build": {
+        // Define Dockerfile arguments and folder
+        "dockerfile": "Dockerfile", 
+        "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "github.copilot",
+                "github.copilot-chat",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy"
+            ]
+        }
+    },
+    // Allow the devcontainer to run host docker commands, see https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "github-cli": "latest"
+    },
+    "remoteEnv": {
+        "MY_VAR": "${localEnv:MY_VAR}"
+    },
+    // Load variables
+    "runArgs": ["--env-file",".devcontainer/devcontainer.env"],
+    "postCreateCommand": "bash ./.devcontainer/post-install.sh"
+}
