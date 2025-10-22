@@ -17,25 +17,28 @@ Selected components in use:
 ```
 $ uv sync
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+
 # Open a new terminal session
 $ nvm install --lts
 $ node -v
 $ npm -v
 $ npx -v
-# Make sure the "memory" folder exists
 
-# Export Jupyter notebook (Trader_Agent.ipynb) to HTML
+# Make sure the "memory" folder exists
+# mkdir "memory" if not
+
+# Export Jupyter notebook (Trader_Agent.ipynb) to HTML (optional)
 $ uvx jupyter nbconvert --to html Trader_Agent.ipynb
 
-# Modify environment variables in .env to adjust application settings:
+# Modify environment variables in .env to adjust application settings (optional):
 RUN_EVERY_N_MINUTES=60
-RUN_EVEN_WHEN_MARKET_IS_CLOSED=True
+RUN_EVEN_WHEN_MARKET_IS_CLOSED=False
 USE_MANY_MODELS=False
 ```
 
 ## Run
 ```
-# First run only (resetting traders strategy)
+# First run only (resetting traders strategy), this is also possible in runtime via Gradio UI
 $ uv run traders_strategy.py
 
 # Run the app in Terminal 1
