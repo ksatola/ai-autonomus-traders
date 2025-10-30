@@ -39,11 +39,12 @@ USE_MANY_MODELS=False
 ## Run
 ```
 # First run only (resetting traders strategy), this is also possible in runtime via Gradio UI
-$ uv run traders_strategy.py
+# ######### WARNING THIS RESETS EVERYTHING !!!!! $ uv run traders_strategy.py
 
-# Run the app in Terminal 1
+# Run the trading floor backend app in Terminal 1
+uv run trading_floor.py
+
+# Run the frontend app in Terminal 2
 uv run app.py
 
-# Run the trading floor in Terminal 2
-uv run trading_floor.py
 ```
